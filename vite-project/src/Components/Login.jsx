@@ -1,9 +1,23 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Header from "./Header";
+import validateFormDetail from "../Utils/Validation";
 
 const Login = () => {
   const [showForm, setShowForm] = useState(false);
   const [newUserForm, setNewUserForm] = useState(false);
+  const [formMessage, setFormMessage] = useState(null);
+
+  const email = useRef(null);
+
+  const password = useRef(null);
+
+  const handleLoginSignUP = () => {
+    const message = validateFormDetail(
+      email.current.value,
+      password.current.value
+    );
+    setFormMessage(message);
+  };
 
   const handleShowNewUserForm = () => {
     if (newUserForm === false) {
@@ -11,7 +25,6 @@ const Login = () => {
     } else {
       setNewUserForm(false);
     }
-    console.log(newUserForm);
   };
 
   const handleClick = () => {
@@ -65,18 +78,30 @@ const Login = () => {
               />
             )}
             <input
+              ref={email}
               className="w-full p-2 m-2 rounded"
               type="text"
               placeholder="Enter Your Email"
             />
             <input
+              ref={password}
               className="w-full p-2 m-2 rounded"
               type="password"
               placeholder="Enter Your Password"
             />
-            <button className="bg-red-700 w-20 h-10 rounded ml-40 m-2 text-center hover:bg-red-600 text-white font-bold lg:ml-[350px] lg:mt-5">
+            <button
+              onClick={handleLoginSignUP}
+              className="bg-red-700 w-20 h-10 rounded ml-40 m-2 text-center hover:bg-red-600 text-white font-bold lg:ml-[350px] lg:mt-5"
+            >
               {newUserForm ? "Sign up" : "Login"}
             </button>
+            {formMessage ? (
+              <p className="text-lg text-red-700 font-bold text-center">
+                {formMessage}
+              </p>
+            ) : (
+              <p></p>
+            )}
             <p
               onClick={handleShowNewUserForm}
               className="text-white cursor-pointer font-normal text-lg "
