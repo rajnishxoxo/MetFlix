@@ -7,18 +7,17 @@ import HomePage from "./Components/HomePage";
 const App = () => {
   const router = createBrowserRouter([
     {
-        path:"/",
-        element:<Login/>
+      path: "/",
+      element: <Login />,
     },
     {
-        path:"/home",
-        element:<HomePage/>
-    }
-
+      path: "/home",
+      element: <HomePage />,
+    },
   ]);
   return (
     <div>
-     <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </div>
   );
 };

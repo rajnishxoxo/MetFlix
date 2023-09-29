@@ -7,6 +7,8 @@ import {
 } from "firebase/auth";
 import { auth } from "../Utils/firebase";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUserInfo } from "../Store/Slices/userSlice";
 
 const Login = () => {
   const [showForm, setShowForm] = useState(false);
@@ -16,6 +18,7 @@ const Login = () => {
   const password = useRef(null);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleLogin = () => {
     const message = validateFormDetail(
@@ -33,6 +36,10 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
+
+          const { email, uid } = user;
+          console.log(email,uid)
+          dispatch(addUserInfo({ email: email, uid: uid }));
 
           navigate("/home");
           // ...
@@ -61,6 +68,9 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
+          const { email, uid } = user;
+          dispatch(addUserInfo({ email: email, uid: uid }));
+
           navigate("/home");
         })
         .catch((error) => {

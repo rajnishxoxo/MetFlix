@@ -1,6 +1,12 @@
-import React from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import React, { useEffect } from "react";
+import { auth } from "../Utils/firebase";
+import { addUserInfo, removeUser } from "../Store/Slices/userSlice";
+import { useDispatch } from "react-redux";
 
 const Header = ({ handleClick }) => {
+  const dispatch = useDispatch();
+
   return (
     <div className="flex flex-row items-center mt-5  justify-between w-full lg:w-full lg:mt-0">
       <img
