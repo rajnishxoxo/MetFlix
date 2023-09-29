@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import Header from "./Header";
 import validateFormDetail from "../Utils/Validation";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
   const [showForm, setShowForm] = useState(false);
@@ -11,12 +12,26 @@ const Login = () => {
 
   const password = useRef(null);
 
-  const handleLoginSignUP = () => {
+  const handleLogin = () => {
     const message = validateFormDetail(
       email.current.value,
       password.current.value
     );
     setFormMessage(message);
+    if (formMessage === null) {
+      //login.
+    }
+  };
+
+  const handleSignUP = () => {
+    const message = validateFormDetail(
+      email.current.value,
+      password.current.value
+    );
+    setFormMessage(message);
+    if (formMessage === null) {
+      //create a new user.
+    }
   };
 
   const handleShowNewUserForm = () => {
@@ -89,12 +104,24 @@ const Login = () => {
               type="password"
               placeholder="Enter Your Password"
             />
-            <button
-              onClick={handleLoginSignUP}
-              className="bg-red-700 w-20 h-10 rounded ml-40 m-2 text-center hover:bg-red-600 text-white font-bold lg:ml-[350px] lg:mt-5"
-            >
-              {newUserForm ? "Sign up" : "Login"}
-            </button>
+
+            {newUserForm ? (
+              <button
+                onClick={handleSignUP}
+                className="bg-red-700 w-20 h-10 rounded ml-36
+                 m-2 text-center hover:bg-red-600 text-white font-bold lg:ml-[350px] lg:mt-5"
+              >
+                Sign-up
+              </button>
+            ) : (
+              <button
+                onClick={handleLogin}
+                className="bg-red-700 w-20 h-10 rounded ml-36 m-2 text-center hover:bg-red-600 text-white font-bold lg:ml-[350px] lg:mt-5"
+              >
+                Login
+              </button>
+            )}
+
             {formMessage ? (
               <p className="text-lg text-red-700 font-bold text-center">
                 {formMessage}
