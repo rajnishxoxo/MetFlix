@@ -33,8 +33,8 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log("userLogged IN");
-          navigate('/home')
+
+          navigate("/home");
           // ...
         })
         .catch((error) => {
@@ -61,7 +61,7 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          navigate('/home')
+          navigate("/home");
         })
         .catch((error) => {
           const errorCode = error.code;
