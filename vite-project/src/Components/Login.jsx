@@ -59,7 +59,6 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          
         })
         .catch((error) => {
           const errorCode = error.code;
