@@ -6,15 +6,16 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../Utils/firebase";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [showForm, setShowForm] = useState(false);
   const [newUserForm, setNewUserForm] = useState(false);
   const [formMessage, setFormMessage] = useState(null);
-
   const email = useRef(null);
-
   const password = useRef(null);
+
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     const message = validateFormDetail(
@@ -33,6 +34,7 @@ const Login = () => {
           // Signed in
           const user = userCredential.user;
           console.log("userLogged IN");
+          navigate('/home')
           // ...
         })
         .catch((error) => {
@@ -59,6 +61,7 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
+          navigate('/home')
         })
         .catch((error) => {
           const errorCode = error.code;
