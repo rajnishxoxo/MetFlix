@@ -1,7 +1,11 @@
 import React, { useRef, useState } from "react";
 import Header from "./Header";
 import validateFormDetail from "../Utils/Validation";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../Utils/firebase";
 
 const Login = () => {
   const [showForm, setShowForm] = useState(false);
@@ -18,8 +22,24 @@ const Login = () => {
       password.current.value
     );
     setFormMessage(message);
-    if (formMessage === null) {
-      //login.
+
+    if (formMessage == null) {
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log("userLogged IN");
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setFormMessage(errorMessage + errorCode);
+        });
     }
   };
 
@@ -29,8 +49,23 @@ const Login = () => {
       password.current.value
     );
     setFormMessage(message);
-    if (formMessage === null) {
+    if (formMessage == null) {
       //create a new user.
+
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          const user = userCredential.user;
+          
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setFormMessage(errorMessage + errorCode);
+        });
     }
   };
 
