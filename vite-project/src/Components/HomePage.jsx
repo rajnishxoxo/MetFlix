@@ -32,8 +32,11 @@ const HomePage = () => {
       })
       .catch((error) => {});
   };
+
   useNowPlayingMovies();
   const movie = useSelector((state) => state.movies);
+
+  console.log(movie)
 
   return (
     <div className="flex flex-row items-center mt-5  justify-between w-full lg:w-full lg:ml-10 lg:mt-0">
