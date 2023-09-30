@@ -3,9 +3,25 @@ import React, { useEffect } from "react";
 import { auth } from "../Utils/firebase";
 import { addUserInfo, removeUser } from "../Store/Slices/userSlice";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ handleClick }) => {
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email } = user;
+        dispatch(addUserInfo({ email: email, uid: uid }));
+        navigate("/home");
+      } else {
+        dispatch(removeUser());
+        navigate("/");
+      }
+    });
+  }, []);
 
   return (
     <div className="flex flex-row items-center mt-5  justify-between w-full lg:w-full lg:mt-0">

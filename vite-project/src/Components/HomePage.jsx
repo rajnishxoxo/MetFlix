@@ -7,24 +7,26 @@ import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { removeUser } from "../Store/Slices/userSlice";
-import VideoTitle from "./VideoTitle";
 import MainContainer from "./MainContainer";
+import SecondaryContainer from "./SecondaryContainer";
 
 const HomePage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const { uid, email } = user;
-        dispatch(addUserInfo({ email: email, uid: uid }));
-        navigate("/home");
-      } else {
-        dispatch(removeUser());
-        navigate("/");
-      }
-    });
-  }, []);
+
+  useEffect(()=>{
+    
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const { uid, email } = user;
+      dispatch(addUserInfo({ email: email, uid: uid }));
+      navigate("/home");
+    } else {
+      dispatch(removeUser());
+      navigate("/");
+    }
+  });
+  },[]);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -36,7 +38,7 @@ const HomePage = () => {
   };
 
   useNowPlayingMovies();
- 
+
   return (
     <>
       <div className="flex flex-row items-center mt-5  justify-between w-full lg:w-full lg:ml-10 lg:mt-0">
@@ -56,7 +58,10 @@ const HomePage = () => {
           </button>
         </div>
       </div>
+      <div className="flex flex-col overflow-hidden justify-between">
       <MainContainer />
+      <SecondaryContainer/>
+      </div>
     </>
   );
 };
