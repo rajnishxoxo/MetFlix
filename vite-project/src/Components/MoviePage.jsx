@@ -12,7 +12,6 @@ const MoviePage = () => {
     );
 
     const movieDetail = await movieTextDetails.json();
-console.log(movieDetail);
   };
 
   getMovieDetail();

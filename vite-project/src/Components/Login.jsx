@@ -38,7 +38,7 @@ const Login = () => {
           const user = userCredential.user;
 
           const { email, uid } = user;
-          console.log(email,uid)
+       
           dispatch(addUserInfo({ email: email, uid: uid }));
 
           navigate("/home");

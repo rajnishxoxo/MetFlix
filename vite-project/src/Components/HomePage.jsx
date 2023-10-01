@@ -10,6 +10,7 @@ import { removeUser } from "../Store/Slices/userSlice";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
 import usePopularTvShows from "../Hooks/usePopularTVShows";
+import usePopularMovies from "../Hooks/usePopularMovies";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -40,6 +41,7 @@ const HomePage = () => {
 
   useNowPlayingMovies();
   usePopularTvShows();
+  usePopularMovies();
 
   return (
     <>
