@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { removeUser } from "../Store/Slices/userSlice";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
+import usePopularTvShows from "../Hooks/usePopularTVShows";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -38,6 +39,7 @@ const HomePage = () => {
   };
 
   useNowPlayingMovies();
+  usePopularTvShows();
 
   return (
     <>
