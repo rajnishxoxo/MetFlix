@@ -7,14 +7,16 @@ const usePopularTvShows = () => {
   const dispatch = useDispatch();
 
   const fetchTVShows = async () => {
-    const details = await fetch(
+    const tvshowDetail = await fetch(
       "https://api.themoviedb.org/3/tv/popular?language=en-US&page=1",
       API_OPTIONS
     );
 
-    const tvShows = await details.json();
+    const tvShows = await tvshowDetail.json();
 
-    dispatch((tvShows.results));
+    console.log(tvShows)
+
+    dispatch(addTvShows(tvShows.results));
   };
   useEffect(() => {
     fetchTVShows();

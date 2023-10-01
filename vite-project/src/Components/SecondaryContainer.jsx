@@ -10,11 +10,10 @@ const SecondaryContainer = () => {
   if (movieList == null) return;
   if (popularMovieList == null) return;
   return (
-    <div className="mt-[340px]  lg:mt-[600px]">
-      
+    <div className="mt-[340px] bg-gradient-to-b from-black  lg:mt-[600px]">
       <MovieList title={"Now Playing Movies"} movieList={movieList} />
       <MovieList title={"Popular Movies"} movieList={popularMovieList} />
-      <TvShows/>
+      <TvShows />
     </div>
   );
 };

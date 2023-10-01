@@ -16,19 +16,18 @@ const HomePage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  useEffect(()=>{
-    
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      const { uid, email } = user;
-      dispatch(addUserInfo({ email: email, uid: uid }));
-      navigate("/home");
-    } else {
-      dispatch(removeUser());
-      navigate("/");
-    }
-  });
-  },[]);
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email } = user;
+        dispatch(addUserInfo({ email: email, uid: uid }));
+        navigate("/home");
+      } else {
+        dispatch(removeUser());
+        navigate("/");
+      }
+    });
+  }, []);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -45,11 +44,12 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="flex flex-row items-center mt-5  justify-between w-full lg:w-full lg:ml-10 lg:mt-0">
+      <div className="flex flex-row items-center mt-5 bg-gradient-to-b from-black  justify-between w-full lg:w-full lg:ml-10 lg:mt-0">
         <img
           className="w-28 lg:w-36"
           src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
         />
+
         <div className="flex flex-row justify-between items-center lg:w-1/2 lg:justify-evenly">
           <button className="bg-green-800 w-28 lg:w-36 h-10  rounded text-center mr-2 hover:bg-green-600 text-white">
             GPT-Search
@@ -63,8 +63,8 @@ const HomePage = () => {
         </div>
       </div>
       <div className="flex flex-col overflow-hidden justify-between">
-      <MainContainer />
-      <SecondaryContainer/>
+        <MainContainer />
+        <SecondaryContainer />
       </div>
     </>
   );

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const tvShowSlice = createSlice({
   name: "tvShows",
   initialState: {
-    tvShows: [],
+    tvShows: null,
   },
   reducers: {
     addTvShows: (state, action) => {

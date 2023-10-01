@@ -6,7 +6,7 @@ const MovieList = ({ title, movieList }) => {
  
   return (
     <>
-      <h1 className="text-2xl font-bold shadow ">{title}</h1>
+      <h1 className="text-2xl text-white font-bold shadow ">{title}</h1>
       <div className="flex   overflow-x-scroll">
         {movieList.map((movie) => {
           const { id, poster_path } = movie;
