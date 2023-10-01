@@ -14,7 +14,7 @@ const usePopularTvShows = () => {
 
     const tvShows = await details.json();
 
-    dispatch(addTvShows(tvShows.results));
+    dispatch((tvShows.results));
   };
   useEffect(() => {
     fetchTVShows();
