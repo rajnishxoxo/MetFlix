@@ -4,6 +4,7 @@ import Login from "./Components/Login";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./Components/HomePage";
 import MoviePage from "./Components/MoviePage";
+import TVPage from'./Components/TVPage';
 
 const App = () => {
   const router = createBrowserRouter([
@@ -18,6 +19,10 @@ const App = () => {
     {
       path:'/moviePage/:id',
       element:<MoviePage/>
+    },
+    {
+      path:'/tvPage/:id',
+      element:<TVPage/>
     }
   ]);
   return (
