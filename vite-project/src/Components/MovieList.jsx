@@ -9,19 +9,22 @@ const MovieList = () => {
   if (movieList == null) return;
 
   return (
-    <div className="flex  overflow-x-scroll">
-      {movieList.map((movie) => {
-        const { id, poster_path } = movie;
+    <>
+      <h1 className="text-2xl font-bold shadow ">Now Playing Movies</h1>
+      <div className="flex   overflow-x-scroll">
+        {movieList.map((movie) => {
+          const { id, poster_path } = movie;
 
-        return (
-          <div className="w-40">
-            <Link to={`/moviePage/${id}`} key={id}>
-              <MovieContainer key={id} id={id} poster_path={poster_path} />
-            </Link>
-          </div>
-        );
-      })}
-    </div>
+          return (
+            <div className="w-40">
+              <Link to={`/moviePage/${id}`} key={id}>
+                <MovieContainer key={id} id={id} poster_path={poster_path} />
+              </Link>
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 };
 
