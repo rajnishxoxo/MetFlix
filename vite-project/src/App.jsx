@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./Components/HomePage";
 import MoviePage from "./Components/MoviePage";
 import TVPage from'./Components/TVPage';
+import Horror from "./Components/Genres/Horror";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const App = () => {
     {
       path:'/tvPage/:id',
       element:<TVPage/>
+    },
+    {
+      path:'/horror/',
+      element:<Horror/>
     }
   ]);
   return (

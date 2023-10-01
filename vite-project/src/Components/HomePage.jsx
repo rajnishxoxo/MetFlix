@@ -11,6 +11,7 @@ import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
 import usePopularTvShows from "../Hooks/usePopularTVShows";
 import usePopularMovies from "../Hooks/usePopularMovies";
+import horrorMovie from "../Hooks/horrorMovie";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -41,6 +42,7 @@ const HomePage = () => {
   useNowPlayingMovies();
   usePopularTvShows();
   usePopularMovies();
+  horrorMovie();
 
   return (
     <>

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 const MoviePage = () => {
   const { id } = useParams();
-  const [movieDetail, setMovieDetail] = useState(null);
+ 
 
   const getMovieDetail = async () => {
     const movieTextDetails = await fetch(

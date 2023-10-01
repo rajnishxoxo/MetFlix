@@ -6,8 +6,6 @@ import { Link } from "react-router-dom";
 const TvShows = () => {
   const tvList = useSelector((store) => store.tvShows.tvShows);
 
-  console.log(tvList)
-
   if (tvList == null) return;
 
   return (
