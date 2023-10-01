@@ -3,6 +3,7 @@ import MovieContainer from "./MovieContainer";
 import { Link } from "react-router-dom";
 
 const MovieList = ({ title, movieList }) => {
+ 
   return (
     <>
       <h1 className="text-2xl font-bold shadow ">{title}</h1>

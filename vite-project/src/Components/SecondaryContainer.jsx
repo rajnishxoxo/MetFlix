@@ -8,6 +8,7 @@ const SecondaryContainer = () => {
   const popularMovieList = useSelector((store) => store.movies.popularMovies);
 
   if (movieList == null) return;
+  if (popularMovieList == null) return;
   return (
     <div className="mt-[340px]  lg:mt-[600px]">
       
