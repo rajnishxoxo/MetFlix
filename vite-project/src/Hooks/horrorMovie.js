@@ -10,9 +10,14 @@ const horrorMovie = () => {
       "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
       API_OPTIONS
     );
+    const getDetails = await fetch(
+      "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+      API_OPTIONS
+    );
     const moviesDetail = await data.json();
+    const moviesDetailTwo = await getDetails.json();
 
-    const horrorMovieList = moviesDetail.results;
+    const horrorMovieList = moviesDetail.results+moviesDetailTwo;
 
     const horrorMovies = horrorMovieList.filter((movie) =>
       movie.genre_ids.includes(27)
