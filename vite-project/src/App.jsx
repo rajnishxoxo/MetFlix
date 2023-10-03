@@ -6,6 +6,8 @@ import HomePage from "./Components/HomePage";
 import MoviePage from "./Components/MoviePage";
 import TVPage from'./Components/TVPage';
 import Horror from "./Components/Genres/Horror";
+import Action from "./Components/Genres/Action";
+import Romance from "./Components/Genres/Romance";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -28,6 +30,14 @@ const App = () => {
     {
       path:'/horror/',
       element:<Horror/>
+    },
+    {
+      path:'/action',
+      element:<Action/>
+    },
+    {
+      path:'/romance',
+      element:<Romance/>
     }
   ]);
   return (
