@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import MovieContainer from "./MovieContainer";
 import { Link } from "react-router-dom";
+import TVPage from "./TVPage";
 
 const TvShows = () => {
   const tvList = useSelector((store) => store.tvShows.tvShows);
@@ -15,10 +16,11 @@ const TvShows = () => {
         <>
           {tvList.map((show) => {
             const { id, poster_path } = show;
+            console.log(poster_path)
             return (
               <div className="w-40" key={id}>
                 <Link to={`/tvPage/${id}`} key={id}>
-                  <MovieContainer id={id} poster_path={poster_path} />
+                  <TVPage prop={poster_path} />
                 </Link>
               </div>
             );
