@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { IMAGE_PATH } from "../../Utils/Contant";
+import { addRomanticeMovies } from "../../Store/Slices/movieSlice";
 
 const Romance = () => {
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ const Romance = () => {
 
     const finalList = [...movieListOne, ...movieListTwo];
     console.log(finalList);
+    dispatch(addRomanticeMovies(finalList));
     setMovieList(finalList);
   }, []);
 
