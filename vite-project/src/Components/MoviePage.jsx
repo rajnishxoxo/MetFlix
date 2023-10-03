@@ -1,20 +1,29 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+
+import { useDispatch } from "react-redux";
+
+import useMoviePage from "../Hooks/useMoviePage";
+import { useSelector } from "react-redux";
 
 const MoviePage = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
- 
 
-  const getMovieDetail = async () => {
-    const movieTextDetails = await fetch(
-      "https://api.themoviedb.org/3/movie/" + id + "?language=en-US",
-      API_Option
-    );
+  useMoviePage(id);
 
-    const movieDetail = await movieTextDetails.json();
-  };
+  const movieTextDetail = useSelector(
+    (state) => state.moviePage.movieTextDetail
+  );
+  const movieVideoDetail = useSelector(
+    (state) => state.moviePage.movieVideoDetail
+  );
+  
+  const { poster_path, original_title, overview } = movieTextDetail;
+  const{key} = movieVideoDetail;
 
-  getMovieDetail();
+  console.log(poster_path + original_title +overview)
+  console.log(key)
+
 
   return (
     <div className="bg-red-800">
