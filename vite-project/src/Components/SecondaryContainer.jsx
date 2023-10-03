@@ -17,6 +17,11 @@ const SecondaryContainer = () => {
     navigate('/action')
   }
 
+
+  const handleRomanticMovies =()=>{
+    navigate('/romance')
+  }
+
   if (movieList == null) return;
   if (popularMovieList == null) return;
   return (
@@ -32,7 +37,7 @@ const SecondaryContainer = () => {
           Horror
         </button>
         <button  onClick={handleActionMovies} className="text-white bg-red-500 w-14 rounded">Action</button>
-        <button className="text-white bg-red-500 w-20 rounded">Romantic</button>
+        <button  onClick={handleRomanticMovies} className="text-white bg-red-500 w-20 rounded">Romantic</button>
       </div>
       <MovieList title={"Now Playing Movies"} movieList={movieList} />
       <MovieList title={"Popular Movies"} movieList={popularMovieList} />
