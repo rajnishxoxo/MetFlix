@@ -7,6 +7,8 @@ import TVPage from "./TVPage";
 const TvShows = () => {
   const tvList = useSelector((store) => store.tvShows.tvShows);
 
+  console.log(tvList)
+
   if (tvList == null) return;
 
   return (
@@ -17,10 +19,11 @@ const TvShows = () => {
           {tvList.map((show) => {
             const { id, poster_path } = show;
             console.log(poster_path)
+            
             return (
               <div className="w-40" key={id}>
                 <Link to={`/tvPage/${id}`} key={id}>
-                  <TVPage prop={poster_path} />
+                  <TVPage poster_path={poster_path}/>
                 </Link>
               </div>
             );
