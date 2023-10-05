@@ -34,52 +34,33 @@ const TvSeries = () => {
   const { overview, poster_path, original_name } = tvDetails;
 
   return (
-    <div className="lg:absolute lg:-z-10 lg:-mt-20">
-      <div className="w-screen absolute -z-20  ">
-        <img
-          className="  w-screen object-contain h-[700px] git pull
-          rounded-xl"
-          src={IMAGE_PATH + poster_path}
-          alt="movie poster"
-        />
-      </div>
-      <div>
-        <div className="bg-gradient-to-t from-black">
-          <div className="pt-[40%] lg:mt-[100px]  px-5 absolute aspect-video bg-gradient-to-b from-black w-screen lg:pt-[20%]  lg:px-24 ">
-            <div>
-              <h1 className="text-2xl mx-2 mb-2 text-white lg:text-7xl">
-                {original_name}
-              </h1>
-              <p className="text-sm mx-2 text-white lg:text-3xl lg:font-normal">
-                {overview}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-gradient-to-t from-black">
-          <div className="pt-[40%] lg:mt-[100px]  px-5 absolute aspect-video bg-gradient-to-b from-black w-screen lg:pt-[20%]  lg:px-24 ">
-            <div>
-              <h1 className="text-2xl mx-2 mb-2 text-white  lg:text-7xl">
-                {original_name}
-              </h1>
-              <p className="text-sm mx-2 text-white lg:text-3xl lg:font-normal">
-                {overview}
-              </p>
-            </div>
-          </div>
+    <div className="-mt-[100px]">
+    <div className="bg-gradient-to-t from-black">
+      <div className="pt-[40%] lg:mt-[100px]  px-5 absolute aspect-video bg-gradient-to-b from-black w-screen lg:pt-[20%]  lg:px-24 ">
+        <div>
+          <h1 className="text-2xl mx-2 mb-2 text-white lg:text-7xl">
+            {original_name}
+          </h1>
+          <p className="text-sm mx-2 text-white lg:text-3xl lg:font-normal">
+            {overview}
+          </p>
         </div>
       </div>
-      {
-        <div className="md:hidden ">
-          <img
-            className=" w-[100%] border-[1px] border-brand-beige mt-8 mx-auto rounded-xl"
-            src={IMAGE_PATH + poster_path}
-            alt="movie poster"
-          />
-        </div>
-      }
     </div>
+
+    <div className="bg-gradient-to-t from-black">
+      <div className="pt-[40%] lg:mt-[100px]  px-5 absolute aspect-video bg-gradient-to-b from-black w-screen lg:pt-[20%]  lg:px-24 ">
+        <div>
+          <h1 className="text-2xl mx-2 mb-2 text-white  lg:text-7xl">
+            {original_name}
+          </h1>
+          <p className="text-sm mx-2 text-white lg:text-3xl lg:font-normal">
+            {overview}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
   );
 };
 

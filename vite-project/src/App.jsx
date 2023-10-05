@@ -4,7 +4,7 @@ import Login from "./Components/Login";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./Components/HomePage";
 import MoviePage from "./Components/MoviePage";
-import TVPage from'./Components/TVPage';
+import Tvseries from "./Components/TvSeries"
 import Horror from "./Components/Genres/Horror";
 import Action from "./Components/Genres/Action";
 import Romance from "./Components/Genres/Romance";
@@ -25,7 +25,7 @@ const App = () => {
     },
     {
       path:'/tvPage/:id',
-      element:<TVPage/>
+      element:<Tvseries/>
     },
     {
       path:'/horror/',
