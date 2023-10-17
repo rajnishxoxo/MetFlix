@@ -21,7 +21,7 @@ const MoviePage = () => {
 
   console.log(movieVideoDetail)
 
-  if (movieTextDetail === null || movieVideoDetail === null) return;
+  if (movieTextDetail === null && movieVideoDetail === null) return;
 
   const { poster_path, original_title, overview } = movieTextDetail;
   const { key } = movieVideoDetail;
