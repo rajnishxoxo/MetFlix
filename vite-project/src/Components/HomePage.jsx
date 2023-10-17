@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import useNowPlayingMovies from "../Hooks/useNowPlayingMovies";
 import { useSelector } from "react-redux";
 import { auth } from "../Utils/firebase";
@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useDispatch } from "react-redux";
-import { removeUser } from "../Store/Slices/userSlice";
+import { addUserInfo, removeUser } from "../Store/Slices/userSlice";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
 import usePopularTvShows from "../Hooks/usePopularTVShows";
@@ -44,6 +44,18 @@ const HomePage = () => {
   usePopularMovies();
   horrorMovie();
 
+  const [showGPT, setShowGPT] = useState(false);
+
+  const handleShowGPT = () => {
+    if (showGPT === false) {
+      setShowGPT(true);
+    } else {
+      setShowGPT(false);
+    }
+  };
+
+  console.log(showGPT);
+
   return (
     <>
       <div className="flex flex-row items-center mt-5 bg-gradient-to-b from-black  justify-between w-full lg:w-full lg:ml-10 lg:mt-0">
@@ -53,7 +65,10 @@ const HomePage = () => {
         />
 
         <div className="flex flex-row justify-between items-center lg:w-1/2 lg:justify-evenly">
-          <button className="bg-green-800 w-28 lg:w-36 h-10  rounded text-center mr-2 hover:bg-green-600 text-white">
+          <button
+            onClick={handleShowGPT}
+            className="bg-green-800 w-28 lg:w-36 h-10  rounded text-center mr-2 hover:bg-green-600 text-white"
+          >
             GPT-Search
           </button>
           <button
@@ -65,8 +80,14 @@ const HomePage = () => {
         </div>
       </div>
       <div className="flex flex-col overflow-hidden justify-between">
-        <MainContainer />
-        <SecondaryContainer />
+        {showGPT ? (
+          "Hello"
+        ) : (
+          <div>
+            <MainContainer />
+            <SecondaryContainer />
+          </div>
+        )}
       </div>
     </>
   );
