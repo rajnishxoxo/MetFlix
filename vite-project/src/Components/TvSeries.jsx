@@ -9,7 +9,7 @@ const TvSeries = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log(id);
+  
 
   const fetchDetails = async () => {
     const data = await fetch(
@@ -19,7 +19,7 @@ const TvSeries = () => {
 
     const getDetails = await data.json();
 
-    console.log(getDetails);
+   
 
     const { overview, poster_path, original_name } = getDetails;
     dispatch(addTvShowsDetails({ overview, poster_path, original_name }));
