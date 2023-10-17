@@ -12,7 +12,7 @@ import SecondaryContainer from "./SecondaryContainer";
 import usePopularTvShows from "../Hooks/usePopularTVShows";
 import usePopularMovies from "../Hooks/usePopularMovies";
 import horrorMovie from "../Hooks/horrorMovie";
-import GptSearchBar from "./GPT Components/GptSearchBar";
+import GptSearchComp from "./GptSearchComp ";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -50,7 +50,7 @@ const HomePage = () => {
   const handleShowGPT = () => {
     if (showGPT === false) {
       setShowGPT(true);
-      console.log("load");
+  
     } else {
       setShowGPT(false);
     }
@@ -81,7 +81,9 @@ const HomePage = () => {
       </div>
       <div className="flex flex-col overflow-hidden justify-between">
         {showGPT ? (
-          <GptSearchBar />
+          <>
+            <GptSearchComp />
+          </>
         ) : (
           <div>
             <MainContainer />

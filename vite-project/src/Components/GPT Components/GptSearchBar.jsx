@@ -3,6 +3,7 @@ import openai from "../../Utils/openAI";
 
 import { useDispatch } from "react-redux";
 import { API_OPTIONS } from "../../Utils/Contant";
+import { addGptMovie } from "../../Store/Slices/movieSlice";
 
 const GptSearchBar = () => {
   const dispatch = useDispatch();
@@ -49,7 +50,7 @@ const GptSearchBar = () => {
 
     const tmdbResult = await Promise.all(arrayOfPromise);
 
-    console.log(tmdbResult);
+    dispatch(addGptMovie(tmdbResult));
   };
 
   return (
