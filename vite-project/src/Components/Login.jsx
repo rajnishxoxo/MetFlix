@@ -38,7 +38,7 @@ const Login = () => {
           const user = userCredential.user;
 
           const { email, uid } = user;
-       
+
           dispatch(addUserInfo({ email: email, uid: uid }));
 
           navigate("/home");
@@ -58,7 +58,7 @@ const Login = () => {
       password.current.value
     );
     setFormMessage(message);
-    if (formMessage == null) {
+    if (message == null) {
       //create a new user.
 
       createUserWithEmailAndPassword(
