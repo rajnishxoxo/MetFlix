@@ -1,5 +1,5 @@
 import { onAuthStateChanged } from "firebase/auth";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { auth } from "../Utils/firebase";
 import { addUserInfo, removeUser } from "../Store/Slices/userSlice";
 import { useDispatch } from "react-redux";
@@ -9,6 +9,8 @@ const Header = ({ handleClick }) => {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
+
+  const [showGPT , setShowGPT] = useState(false);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
