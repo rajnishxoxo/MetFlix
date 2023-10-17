@@ -9,20 +9,20 @@ const GptMoviesSuggestion = () => {
   
 
   return (
-    <div className="bg-gray-900 min-h-screen p-6">
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-16 mx-auto max-w-screen-xl">
+    <div className="bg-gray-900  p-6">
+      <div className="grid grid-cols-2 gap-2   mt-10 mx-auto max-w-screen-xl">
         {movieStore &&
           movieStore.map((data) => {
             const mainMovie = data[0];
             const { id, original_title, poster_path } = mainMovie;
 
             return (
-              <div key={id} className="relative w-full bg-white rounded-lg overflow-hidden shadow-md">
+              <div key={id} className="relative lg:w-[400px]  bg-white rounded-lg overflow-hidden shadow-md">
                 <Link to={`/MoviePage/${id}`} key={id} className="block">
                   <img
                     src={IMAGE_PATH + poster_path}
                     alt={original_title}
-                    className="w-full h-auto"
+                    className="w-full  h-auto"
                   />
                 </Link>
                 <div className="p-4">

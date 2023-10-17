@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { IMAGE_PATH } from "../Utils/Contant";
 
 const MoviePage = () => {
-  const navigate = useNavigate();
+
   const { id } = useParams();
 
   useMoviePage(id);
@@ -19,10 +19,14 @@ const MoviePage = () => {
     (state) => state.moviePage.movieVideoDetail
   );
 
+  console.log(movieVideoDetail)
+
   if (movieTextDetail === null || movieVideoDetail === null) return;
 
   const { poster_path, original_title, overview } = movieTextDetail;
   const { key } = movieVideoDetail;
+
+  if(key===null) return;
 
   return (
     <div className="lg:absolute lg:-z-10 lg:-mt-20">

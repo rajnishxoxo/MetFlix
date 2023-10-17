@@ -8,10 +8,14 @@ const GptSearchComp = () => {
   
   <>
  
-    <div className="relative">
+    <div className="">
     <div className=" z-10 w-full absolute">
+    <div className="ml-[-100px]">
     <GptSearchBar />
-    <GptMoviesSuggestion/>
+    </div>
+   <div>
+   <GptMoviesSuggestion/>
+   </div>
     </div>
     <div className="relative">
       <div class="relative my-1">
