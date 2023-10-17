@@ -22,7 +22,7 @@ const Romance = () => {
     );
 
     const finalList = [...movieListOne, ...movieListTwo];
-    console.log(finalList);
+    
     dispatch(addRomanticeMovies(finalList));
     setMovieList(finalList);
   }, []);
