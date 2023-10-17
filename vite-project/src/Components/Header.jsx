@@ -10,7 +10,6 @@ const Header = ({ handleClick }) => {
 
   const dispatch = useDispatch();
 
-  const [showGPT , setShowGPT] = useState(false);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
