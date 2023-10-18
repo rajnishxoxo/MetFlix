@@ -87,6 +87,7 @@ const HomePage = () => {
         {showGPT ? (
           <>
             <GptSearchComp />
+           
           </>
         ) : (
           <div>
