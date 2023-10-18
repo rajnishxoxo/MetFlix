@@ -13,6 +13,7 @@ import usePopularTvShows from "../Hooks/usePopularTVShows";
 import usePopularMovies from "../Hooks/usePopularMovies";
 import horrorMovie from "../Hooks/horrorMovie";
 import GptSearchComp from "./GptSearchComp ";
+import Footer from "./Footer";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -91,6 +92,7 @@ const HomePage = () => {
           <div>
             <MainContainer />
             <SecondaryContainer />
+            <Footer/>
           </div>
         )}
       </div>
