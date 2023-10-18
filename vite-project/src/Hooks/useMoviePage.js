@@ -23,6 +23,8 @@ const useMoviePage = (id) => {
     const movieInfo = await textdata.json();
     const movieVideoData = await videoData.json();
 
+    console.log(movieInfo)
+
     const movieVideo = movieVideoData.results;
 
     const movieTrailer = movieVideo.filter((movie) => movie.type == "Trailer");

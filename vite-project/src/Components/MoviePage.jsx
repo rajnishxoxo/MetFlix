@@ -15,7 +15,7 @@ const MoviePage = () => {
     (state) => state.moviePage.movieVideoDetail
   );
 
-  console.log(movieVideoDetail);
+
 
   if (movieTextDetail === null && movieVideoDetail === null) {
     return null; // You should return something from your component
