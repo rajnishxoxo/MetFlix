@@ -47,12 +47,16 @@ const HomePage = () => {
 
   const [showGPT, setShowGPT] = useState(false);
 
+  const [gptButtonText,setGptButtonText] = useState("GPT-Search")
+
   const handleShowGPT = () => {
     if (showGPT === false) {
       setShowGPT(true);
+      setGptButtonText("Home")
   
     } else {
       setShowGPT(false);
+      setGptButtonText("GPT-Search")
     }
   };
 
@@ -69,7 +73,7 @@ const HomePage = () => {
             onClick={handleShowGPT}
             className="bg-green-800 w-28 lg:w-36 h-10  rounded text-center mr-2 hover:bg-green-600 text-white"
           >
-            GPT-Search
+            {gptButtonText}
           </button>
           <button
             onClick={handleSignOut}
