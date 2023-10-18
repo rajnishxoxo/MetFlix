@@ -47,16 +47,15 @@ const HomePage = () => {
 
   const [showGPT, setShowGPT] = useState(false);
 
-  const [gptButtonText,setGptButtonText] = useState("GPT-Search")
+  const [gptButtonText, setGptButtonText] = useState("GPT-Search");
 
   const handleShowGPT = () => {
     if (showGPT === false) {
       setShowGPT(true);
-      setGptButtonText("Home")
-  
+      setGptButtonText("Back To Home");
     } else {
       setShowGPT(false);
-      setGptButtonText("GPT-Search")
+      setGptButtonText("GPT-Search");
     }
   };
 
