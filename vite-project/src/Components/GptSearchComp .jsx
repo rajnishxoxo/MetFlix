@@ -19,7 +19,7 @@ const GptSearchComp = () => {
     </div>
     <div className="relative">
       <div class="relative my-1">
-        <img class="object-cover " src={netflixBackGround} alt="bg" />
+        <img class="object-cover h-screen lg:h-auto " src={netflixBackGround} alt="bg" />
         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
         <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-transparent"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-transparent"></div>
